@@ -11,8 +11,8 @@ public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите путь до файла:");
-        //������� ����, �������� C:\Users\User_name\path...\src\javaBasic02\input.txt
-        //� ����� nput.txt ���� ������ �����
+        //Введите свой путь к файлу, например  C:\Users\User_name\path...\src\javaBasic02\input.txt
+        //Пример ввода можно взять в файле   src\JavaBasic02\input.txt
         String input = scanner.nextLine().strip();
         String file;
         try {
