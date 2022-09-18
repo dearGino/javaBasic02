@@ -10,15 +10,15 @@ import java.util.TreeSet;
 public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите путь до файла:");
-        //Введите путь, например C:\Users\User_name\path...\src\javaBasic02\input.txt
-        //В файле nput.txt есть пример ввода
+        System.out.println("Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ РґРѕ С„Р°Р№Р»Р°:");
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ C:\Users\User_name\path...\src\javaBasic02\input.txt
+        //пїЅ пїЅпїЅпїЅпїЅпїЅ nput.txt пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         String input = scanner.nextLine().strip();
         String file;
         try {
             file = Files.readString(Path.of(input));
         } catch (IOException exception) {
-            System.out.println("Ошибка: файл не найден или путь введён неправильно" + exception);
+            System.out.println("РћС€РёР±РєР°: С„Р°Р№Р»Р° РЅРµС‚ РёР»Рё РїСѓС‚СЊ РЅРµРІРµСЂРЅС‹Р№" + exception);
             return;
         }
         String[] words = file.split("[^a-zA-Z]");
@@ -34,20 +34,20 @@ public class main {
             wordStat.put(lowercaseWord, wordCount + 1);
         }
         if (wordStat.isEmpty()) {
-            System.out.println("Ошибка: в файле нет слов!");
+            System.out.println("РћС€РёР±РєР°: РІ С„Р°Р№Р»Рµ РЅРµС‚ СЃР»РѕРІ");
             return;
         }
 
-        System.out.println("Слова в файле:");
+        System.out.println("РЎР»РѕРІР° РІ С„Р°Р№Р»Рµ:");
         System.out.println(wordStat.keySet());
 
-        System.out.println("Всего слов в файле: " + wordsAmount);
+        System.out.println("Р’СЃРµРіРѕ СЃР»РѕРІ:  " + wordsAmount);
         System.out.println();
-        System.out.println("Статистика:");
+        System.out.println("РЎС‚Р°С‚РёСЃС‚РёРєР°:");
         for (Map.Entry<String, Integer> entry : wordStat.entrySet()) {
             String word = entry.getKey();
             Integer count = entry.getValue();
-            System.out.printf("%s:      количество - %3d, частота - %.2f%%\n", word, count, (count/(double)wordsAmount));
+            System.out.printf("%s:      РєРѕР»РёС‡РµСЃС‚РІРѕ - %3d, С‡Р°СЃС‚РѕС‚Р° - %.2f%%\n", word, count, (count/(double)wordsAmount));
         }
 
         TreeSet<String> maxWords = new TreeSet<>();
@@ -64,7 +64,7 @@ public class main {
             
         }
         System.out.println();
-        System.out.println("Чаще всего встречались слова: ");
+        System.out.println("РЎР°РјС‹Рµ С‡Р°СЃС‚Рѕ РІСЃС‚СЂРµС‡Р°РµРјС‹Рµ СЃР»РѕРІР°: ");
         System.out.println(maxWords);
     }
 }
